@@ -20,7 +20,6 @@ export default class CheckoutProgressBar extends PureComponent {
 
   getCurrentStep() {
     const { stepMap } = this.props;
-    const { checkoutStep } = this.props;
     const currentStep = stepMap.find(
       (step) => step.title === this.props.checkoutStep
     );
