@@ -60,7 +60,6 @@ export default class CheckoutProgressBar extends PureComponent {
 
   renderTitle() {
     const { stepMap } = this.props;
-    const { checkoutStep } = this.props;
     const Title = stepMap.map((step) => {
       const { index, stepName } = step;
       const active = this.getCurrentStep() >= index ? "active" : "";
