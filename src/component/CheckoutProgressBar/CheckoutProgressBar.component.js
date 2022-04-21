@@ -1,16 +1,18 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
+import './CheckoutProgressBar.style.scss';
+
 export default class CheckoutProgressBar extends PureComponent {
   static propTypes = {
-    stepMap : PropTypes.array.isRequired,
-    currentStep : PropTypes.string.isRequired,
-  }
+    stepMap: PropTypes.array.isRequired,
+    currentStep: PropTypes.string.isRequired,
+  };
 
   static defaultProps = {
-    stepMap : [],
-    currentStep : "",
-  }
+    stepMap: [],
+    currentStep: "",
+  };
 
   getMaxStep() {
     return this.props.stepMap.length;
@@ -34,7 +36,7 @@ export default class CheckoutProgressBar extends PureComponent {
   renderSteps() {
     const Steps = this.props.stepMap.map((step) => {
       const { index, stepName } = step;
-      const active = (this.getCurrentStep() >= index) ? "active" : "";
+      const active = this.getCurrentStep() >= index ? "active" : "";
       if (stepName !== "") {
         return (
           <>
@@ -61,14 +63,20 @@ export default class CheckoutProgressBar extends PureComponent {
     const { checkoutStep } = this.props;
     const Title = stepMap.map((step) => {
       const { index, stepName } = step;
-      const active = (this.getCurrentStep() >= index) ? "active" : "";
+      const active = this.getCurrentStep() >= index ? "active" : "";
       if (stepName !== "") {
         return (
-            <div key={index} className="test">
-              <div className="Checkout-Test-Item-Title">
-                {stepName}
-                </div>
+          <div key={index} className="test">
+            <div
+              className={
+                active
+                  ? "Checkout-Test-Item-Title active-title"
+                  : "Checkout-Test-Item-Title"
+              }
+            >
+              {stepName}
             </div>
+          </div>
         );
       }
     });
