@@ -96,6 +96,7 @@
 
 progress[value]::-webkit-progress-value {
   background-color: var(--primary-base-color) !important;
+  transition: all 1s ease-in-out;
 }
 progress[value]::-webkit-progress-bar {
   background: rgba(10, 10, 10, 0.5);
