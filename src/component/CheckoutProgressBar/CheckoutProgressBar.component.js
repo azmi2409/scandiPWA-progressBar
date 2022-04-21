@@ -15,7 +15,9 @@ export default class CheckoutProgressBar extends PureComponent {
   };
 
   getMaxStep() {
-    return this.props.stepMap.length;
+    const { stepMap } = this.props;
+    const length = stepMap.filter((step) => step.stepName !== "").length;
+    return length + 1
   }
 
   getCurrentStep() {
